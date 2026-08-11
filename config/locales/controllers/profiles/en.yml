@@ -1,0 +1,9 @@
+en:
+  controllers:
+    profiles:
+      create_susshi_user_key:
+        notice:
+          success: "SSH Public Key added."
+      delete_susshi_user_key:
+        notice:
+          success: "SSH Public Key removed."

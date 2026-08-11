@@ -1,0 +1,41 @@
+de:
+  views:
+    sessions:
+      authorize:
+        api:
+          header: "Interner Fehler!"
+          details: "Leider ist ein Fehler aufgetreten."
+          instructions:
+            message: "Bei der Kommunikation mit der API ist ein schwerwiegendes Problem aufgetreten."
+            try_again: "Bitte versuchen Sie es später erneut."
+        failure:
+          header: "Interner Fehler!"
+          details: "Leider ist ein Fehler aufgetreten."
+          instructions:
+            message: "Bei der Kommunikation mit dem Gateway ist ein schwerwiegendes Problem aufgetreten."
+            try_again: "Bitte versuchen Sie es später erneut."
+        gone:
+          header: "Sitzung beendet!"
+          details: "Leider ist ein Fehler aufgetreten."
+          instructions:
+            message: "Die Sitzung wurde beendet, bevor die Authentifizierung erfolgreich abgeschlossen werden konnte."
+            try_again: "Bitte versuchen Sie es erneut mit einer neuen SSH-Sitzung."
+        login:
+          header: "Authentifizierung fehlgeschlagen!"
+          details: "Leider ist ein Fehler aufgetreten."
+          instructions:
+            message: "Die Authentifizierung beim Identitätsanbieter ist fehlgeschlagen."
+            try_again: "Bitte versuchen Sie es später erneut."
+        new:
+          header: "SSH-Sitzung autorisieren"
+          details: "Anmeldung beim Identitätsanbieter"
+        not_found:
+          header: "Zugriff verweigert!"
+          details: "Die SSH-Sitzung wurde nicht gefunden."
+          instructions: "Bitte versuchen Sie es erneut mit einer neuen SSH-Sitzung."
+        success:
+          header: "Erfolg!"
+          details: "Der Zugriff wurde gewährt."
+          instructions: "Ihre SSH-Sitzung wird automatisch fortgesetzt."
+      new:
+        details: "Anmeldung beim Identitätsanbieter"

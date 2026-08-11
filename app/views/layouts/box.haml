@@ -1,0 +1,20 @@
+= with_layout :application do
+  .box{class: @box_css_class}
+    %img.susshi-logo
+
+    = yield :controls
+
+    .header
+      - if content_for(:header)
+        = yield :header
+      - else
+        = application_name
+
+    .details
+      = yield :details
+
+    .instructions
+      = yield :instructions
+
+    .copyright
+      = copyright

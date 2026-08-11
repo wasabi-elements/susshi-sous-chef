@@ -1,0 +1,33 @@
+en:
+  views:
+    profiles:
+      edit:
+        header: "Welcome, %{username}!"
+        tables:
+          user_keys:
+            title: "SSH Public Keys"
+            thead:
+              type: "Type"
+              fingerprint: "Fingerprint"
+            tbody:
+              upload_ssh_public_key:
+                not_found: "No SSH Public Keys found!"
+              actions:
+                delete: "Delete"
+                cancel: "Cancel"
+                delete_confirm_title: "Delete SSH key"
+                delete_confirm: "Really delete this SSH key?"
+        chef_api:
+          not_available: "Chef API not available!"
+        profile_disabled:
+          header: "Profile Management Disabled!"
+          details: "This feature is currently not available."
+          instructions: "Contact your administrator for more information."
+        susshi_user_login:
+          not_found: "suSSHi User Login not found!"
+        forms:
+          upload:
+            title: "Upload SSH Public Key"
+            placeholder: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... johndoe@example.com"
+            buttons:
+              submit: "Upload"

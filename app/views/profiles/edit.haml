@@ -1,0 +1,67 @@
+- content_for :stylesheet_link_tags do
+  = stylesheet_link_tag "profiles"
+
+- content_for :javascript_include_tags do
+  = javascript_include_tag :profiles
+
+- content_for :controls do
+  %a.close{href: destroy_session_path, method: :delete, title: "Logout"}
+
+- content_for :header do
+  = t("views.profiles.edit.header", username: current_user.name)
+
+- content_for :instructions do
+  .content-wrapper.profiles
+    - if defined?(@chef_api) && @chef_api.connection?
+      - if defined?(@susshi_user_login)
+        .details-wrapper
+          %h3.section-title= t("views.profiles.edit.tables.user_keys.title")
+          %table.user-keys
+            %thead
+              %tr
+                %th= t("views.profiles.edit.tables.user_keys.thead.type")
+                %th= t("views.profiles.edit.tables.user_keys.thead.fingerprint")
+                %th
+            %tbody
+              - if @susshi_user_login["susshi_user_keys"].any?
+                - @susshi_user_login["susshi_user_keys"].each do |user_key|
+                  %tr{title: user_key["public_blob"]}
+                    %td= user_key["ssh_key_type"]
+                    %td.fingerprint= user_key["fingerprint"]
+                    %td= button_to "", profiles_susshi_user_key_path(params: {id: user_key["id"]}), method: :delete, class: :delete, title: t("views.profiles.edit.tables.user_keys.tbody.actions.delete"), aria: {label: t("views.profiles.edit.tables.user_keys.tbody.actions.delete")}
+              - else
+                %tr
+                  %td{colspan: "100%"}= t("views.profiles.edit.tables.user_keys.tbody.upload_ssh_public_key.not_found")
+
+        - if action_name =~ /^delete/
+          - if @response.errors?
+            %ul.errors
+              - @response.errors.each do |error|
+                %li= ensure_sentence_punctuation(error["message"]&.capitalize)
+
+        - if flash[:notice]
+          %ul.notices
+            %li= ensure_sentence_punctuation(flash[:notice])
+
+        = form_tag profiles_susshi_user_key_path, class: :upload do
+          %h3.section-title= t("views.profiles.edit.forms.upload.title")
+          = textarea_tag :public_blob, nil, rows: 5, placeholder: t("views.profiles.edit.forms.upload.placeholder")
+          = button_tag t("views.profiles.edit.forms.upload.buttons.submit")
+
+        - if action_name =~ /^create/
+          - if @response.errors?
+            %ul.errors
+              - @response.errors.each do |error|
+                %li= ensure_sentence_punctuation(error["message"]&.capitalize)
+
+        %dialog#delete-confirm-dialog
+          %h3= t("views.profiles.edit.tables.user_keys.tbody.actions.delete_confirm_title")
+          %p= t("views.profiles.edit.tables.user_keys.tbody.actions.delete_confirm")
+          .dialog-actions
+            %button.cancel{type: "button"}= t("views.profiles.edit.tables.user_keys.tbody.actions.cancel")
+            %button.confirm{type: "button"}= t("views.profiles.edit.tables.user_keys.tbody.actions.delete")
+
+      - else
+        .warning= t("views.profiles.edit.susshi_user_login.not_found")
+    - else
+      .error= t("views.profiles.edit.chef_api.not_available")

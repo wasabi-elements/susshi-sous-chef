@@ -1,0 +1,231 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+body {
+    font-size: 14px;
+    overflow: inherit;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    background-image: url("/background.avif");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center bottom;
+    background-size: 100%;
+}
+
+.error {
+    color: #ff0000;
+    font-weight: normal;
+}
+
+.warning {
+    color: #9c6700;
+    font-weight: normal;
+}
+
+div.box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -90%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.37);
+    width: 500px;
+
+    max-width: 500px;
+    padding: 30px 30px;
+    text-align: center;
+
+    &.large {
+        width: 70vw;
+        min-width: 860px;
+        max-width: 1060px;
+        transform: translate(-50%, -50%);
+    }
+
+    img.susshi-logo {
+        width: 200px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        content: url("/susshi.png");
+    }
+
+    .providers {
+        display: inline-flex;
+        padding-top: 35px;
+        padding-bottom: 35px;
+
+        form.provider {
+            button[type=submit] {
+                background: url("/openid.png") no-repeat;
+                background-position: center left 4px;
+                background-size: 20px;
+                cursor: pointer;
+                padding-top: 6px;
+                padding-bottom: 6px;
+                padding-left: 28px;
+
+                border: 1px solid #b1b1b1;
+                border-radius: 8px;
+
+                span {
+                    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                    font-size: 16px;
+                    font-weight: 200;
+                }
+            }
+        }
+
+        form.provider:not(:first-child) {
+            padding-left: 25px;
+        }
+    }
+}
+
+.header {
+    border-bottom: 1px solid white;
+    font-size: 32px;
+    padding: 15px;
+    margin: 0 30px;
+}
+
+.details {
+    font-size: 20px;
+    font-weight: 400;
+    padding: 10px;
+    color: #2094d1;
+
+    .alert {
+        color: #ff0000;
+    }
+}
+
+.instructions {
+    font-size: 18px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.copyright {
+    font-size: 13px;
+    padding: 0;
+}
+
+.close {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 9999px;
+    display: inline-grid;
+    place-items: center;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background-color: rgb(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.close:before, .close:after {
+    position: absolute;
+    left: 14px;
+    content: ' ';
+    height: 25px;
+    width: 2px;
+    background-color: #8dd5f6;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+.session {
+    .welcome {
+        font-size: x-large;
+        font-weight: 200;
+        padding-bottom: 10px;
+    }
+}
+
+.hide {
+    display: none !important;
+}
+
+/* Animation */
+
+.loader {
+    transform: rotateZ(45deg);
+    perspective: 1000px;
+    border-radius: 50%;
+    width: 96px;
+    height: 96px;
+    color: #2195d2;
+    display: inline-block;
+    //margin-top: 25px;
+}
+
+.loader:before, .loader:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    transform: rotateX(70deg);
+    animation: 1s spin linear infinite;
+}
+
+.loader:after {
+    color: #2195d2;
+    transform: rotateY(70deg);
+    animation-delay: .4s;
+}
+
+@keyframes spin {
+    0%,
+    100% {
+        box-shadow: .2em 0 0 0 currentcolor;
+    }
+    12% {
+        box-shadow: .2em .2em 0 0 currentcolor;
+    }
+    25% {
+        box-shadow: 0 .2em 0 0 currentcolor;
+    }
+    37% {
+        box-shadow: -.2em .2em 0 0 currentcolor;
+    }
+    50% {
+        box-shadow: -.2em 0 0 0 currentcolor;
+    }
+    62% {
+        box-shadow: -.2em -.2em 0 0 currentcolor;
+    }
+    75% {
+        box-shadow: 0 -.2em 0 0 currentcolor;
+    }
+    87% {
+        box-shadow: .2em -.2em 0 0 currentcolor;
+    }
+}

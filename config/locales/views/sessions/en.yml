@@ -1,0 +1,41 @@
+en:
+  views:
+    sessions:
+      authorize:
+        api:
+          header: "Internal Error!"
+          details: "We apologize!"
+          instructions:
+            message: "We had some serious issues talking to the API."
+            try_again: "Please try again later."
+        failure:
+          header: "Internal Error!"
+          details: "We apologize!"
+          instructions:
+            message: "We had some serious issues talking to the gateway."
+            try_again: "Please try again later."
+        gone:
+          header: "Session Gone!"
+          details: "We apologize!"
+          instructions:
+            message: "The session was terminated before authentication was successful."
+            try_again: "Please try again with a new SSH session."
+        login:
+          header: "Authentication Failed!"
+          details: "We apologize!"
+          instructions:
+            message: "Authentication with the identity provider failed."
+            try_again: "Please try again later."
+        new:
+          header: "Authorize SSH Session"
+          details: "Identity Provider Login"
+        not_found:
+          header: "Access Denied!"
+          details: "The SSH session was not found."
+          instructions: "Please try again with a new SSH session."
+        success:
+          header: "Success!"
+          details: "Access has been granted."
+          instructions: "Your SSH session will automatically resume."
+      new:
+        details: "Identity Provider Login"

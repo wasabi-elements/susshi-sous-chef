@@ -1,0 +1,12 @@
+.dockerignore
+.gitlab-ci.yml
+.gitlab/
+.railsview
+doc/
+docker/
+Dockerfile
+lib/tasks/notices.rake
+script/
+BUILD.md
+Gemfile.internal
+THIRD-PARTY-NOTICES.md

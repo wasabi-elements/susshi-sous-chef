@@ -1,0 +1,33 @@
+de:
+  views:
+    profiles:
+      edit:
+        header: "Willkommen, %{username}!"
+        tables:
+          user_keys:
+            title: "SSH Public Keys"
+            thead:
+              type: "Typ"
+              fingerprint: "Fingerabdruck"
+            tbody:
+              upload_ssh_public_key:
+                not_found: "Keine SSH Public Keys gefunden!"
+              actions:
+                delete: "Löschen"
+                cancel: "Abbrechen"
+                delete_confirm_title: "SSH-Schlüssel löschen"
+                delete_confirm: "Diesen SSH-Schlüssel wirklich löschen?"
+        chef_api:
+          not_available: "Chef API nicht verfügbar!"
+        profile_disabled:
+          header: "Profilverwaltung deaktiviert!"
+          details: "Diese Funktion ist derzeit nicht verfügbar."
+          instructions: "Wenden Sie sich an Ihren Administrator für weitere Informationen."
+        susshi_user_login:
+          not_found: "suSSHi User Login Not Found!"
+        forms:
+          upload:
+            title: "SSH Public Key hochladen"
+            placeholder: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... johndoe@example.com"
+            buttons:
+              submit: "Hochladen"

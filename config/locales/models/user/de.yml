@@ -1,0 +1,4 @@
+de:
+  models:
+    user:
+      auth_info_missing: "Authentifizierungsinformationen fehlen!"

@@ -1,0 +1,11 @@
+- content_for(:javascript_include_tags) do
+  = javascript_include_tag :sessions
+
+- content_for :header do
+  = t("views.sessions.authorize.new.header")
+
+- content_for :details do
+  %div= t("views.sessions.authorize.new.details")
+
+- content_for :instructions do
+  = identity_provider_forms

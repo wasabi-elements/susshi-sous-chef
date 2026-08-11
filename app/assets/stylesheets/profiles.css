@@ -1,0 +1,291 @@
+@charset "UTF-8";
+
+.content-wrapper {
+    display: block;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.content-wrapper.profiles {
+    --border-color: #ffffff;
+    --border-color-table: #bebebe;
+    --border-color-button: #9db8cd;
+    --background-color-button: #fdfdfd;
+    --accent-color: #5e92ca;
+    --error-color: #ff0000;
+    --notice-color: #2e7d32;
+    --message-background: rgba(0, 0, 0, 0.05);
+
+    .section-title {
+        margin: 0 0 10px;
+        padding-bottom: 8px;
+        text-align: left;
+        font-size: 16px;
+        font-weight: bolder;
+        border-bottom: 1px solid var(--border-color-table);
+    }
+
+    ul.errors {
+        list-style: none;
+        margin: 0 0 20px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        li {
+            text-align: left;
+            font-size: 16px;
+            padding: 10px 12px;
+            border-radius: 6px;
+            border-left: 3px solid var(--error-color);
+            background: var(--message-background);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    ul.notices {
+        list-style: none;
+        margin: 0 0 20px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        li {
+            text-align: left;
+            font-size: 16px;
+            padding: 10px 12px;
+            border-radius: 6px;
+            border-left: 3px solid var(--notice-color);
+            background: var(--message-background);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    .details-wrapper {
+        background: rgba(255, 255, 255, 50%);
+        border: 1px solid var(--border-color);
+
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+
+        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    table.user-keys {
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        width: 100%;
+
+        thead {
+            th {
+                border-bottom: 1px solid var(--border-color-table);
+                font-weight: bolder;
+                padding: 8px 8px;
+                text-align: left;
+
+                &:last-of-type {
+                    text-align: center;
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                border-bottom: 1px solid var(--border-color-table);
+                transition: background-color 0.15s ease;
+
+                &:last-of-type {
+                    border-bottom: none;
+                }
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.35);
+                }
+
+                td {
+                    padding: 8px 8px;
+                    text-align: left;
+
+                    &:last-of-type:not(:first-of-type) {
+                        text-align: center;
+                    }
+
+                    &.fingerprint {
+                        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+                        font-size: 13px;
+                        color: #4a4a4a;
+
+                        &::before {
+                            content: "🫆";
+                            margin-right: 6px;
+                        }
+                    }
+
+                    button.delete {
+                        position: relative;
+                        width: 22px;
+                        height: 22px;
+                        display: inline-grid;
+                        place-items: center;
+                        border: 1px solid var(--border-color-button);
+                        border-radius: 9999px;
+                        background-color: var(--background-color-button);
+                        color: var(--border-color-button);
+                        cursor: pointer;
+                        transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+                        &:hover {
+                            background-color: var(--error-color);
+                            border-color: var(--error-color);
+                            color: white;
+                        }
+
+                        &:before, &:after {
+                            content: ' ';
+                            position: absolute;
+                            height: 12px;
+                            width: 1.5px;
+                            background-color: currentColor;
+                        }
+
+                        &:before {
+                            transform: rotate(45deg);
+                        }
+
+                        &:after {
+                            transform: rotate(-45deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    form.upload {
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 50%);
+        padding: 20px;
+        margin-bottom: 10px;
+
+        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.37);
+
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            display: inline-block;
+            border-radius: 4px;
+            box-sizing: border-box;
+            overflow: auto;
+            outline: none;
+            resize: none;
+
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 13px;
+
+            border: 1px solid var(--border-color-button);
+            background-color: transparent;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+            &::placeholder {
+                color: #4a4a4a;
+            }
+
+            &:focus {
+                border-color: var(--accent-color);
+                box-shadow: 0 0 0 3px rgba(94, 146, 202, 0.25);
+            }
+        }
+
+        button[type=submit] {
+            display: block;
+            width: 100%;
+            background-color: rgba(94, 146, 202, 0.1);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 12px 28px;
+            margin: 8px 0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+
+            &:hover {
+                border-color: #4c7fb8;
+                box-shadow: 0 0 0 1px #4c7fb8;
+                font-weight: bold;
+            }
+
+            &:active {
+                transform: scale(0.99);
+            }
+        }
+    }
+
+    dialog#delete-confirm-dialog {
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 24px;
+        max-width: 360px;
+        width: 90%;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.37);
+
+        &::backdrop {
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        h3 {
+            margin: 0 0 16px;
+            text-align: left;
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        p {
+            margin: 0 0 20px;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        .dialog-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        button {
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+        }
+
+        button.cancel {
+            background-color: var(--background-color-button);
+            border: 1px solid var(--border-color-button);
+
+            &:hover {
+                background-color: #eef4fa;
+            }
+        }
+
+        button.confirm {
+            background-color: var(--error-color);
+            border: none;
+            color: white;
+
+            &:hover {
+                background-color: #cc0000;
+            }
+        }
+    }
+}
