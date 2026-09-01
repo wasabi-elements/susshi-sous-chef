@@ -34,6 +34,8 @@ end
 
 OmniAuth::Strategies::OpenIDConnect.prepend(Patches::RedirectUriPatch)
 
+OmniAuth.config.logger = Rails.logger
+
 OmniAuth.config.on_failure = proc do |env|
   SessionsController.action(:omniauth_failure).call(env)
 end
