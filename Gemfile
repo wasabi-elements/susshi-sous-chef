@@ -10,6 +10,7 @@ gem "omniauth_openid_connect"
 gem "rest-client"
 gem "request_store"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "json", "< 3.0" # (rails/rails#58685, #58784)
 
 group :development, :test do
   gem "brakeman", require: false
